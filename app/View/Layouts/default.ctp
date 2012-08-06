@@ -29,7 +29,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css('cake.generic');
+		echo $this->Html->css('cake.style');
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
@@ -39,21 +39,24 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
+		</div>
+		<div id="nav">
+			<ul><li><?= $this->Html->link('Home', array('controller' => 'home', 'action' => 'index')); ?></li>
+				<li><?= $this->Html->link('Contact', array('controller' => 'home', 'action' => 'contact')); ?></li>
+				</ul>
 		</div>
 		<div id="content">
-
+		
 			<?php echo $this->Session->flash(); ?>
 
 			<?php echo $this->fetch('content'); ?>
 		</div>
 		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>
+			<div id="links">
+				<div style="padding-top:70px; padding-left: 70px;"><a href="http://www.mozilla.org/en-US/firefox/new/"><?= $this->Html->image('firefox.png', array('alt' => 'Firefox')); ?></a>
+				<a href="https://www.google.com/intl/en/chrome/browser/"><?= $this->Html->image('chrome.png', array('alt' => 'Google Chrome')); ?></a></div>			
+				</div>
+			<div id="copyright">Copyright &copy; 2012 by JJ Web Solutions, LLC</div>
 		</div>
 	</div>
 	<?php echo $this->element('sql_dump'); ?>
